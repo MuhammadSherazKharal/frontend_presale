@@ -89,7 +89,7 @@ const Presale = () => {
   // Buy tokens using USDT
   const handleBuyWithUSDT = async () => {
     try {
-      const usdtContract = new ethers.Contract(usdtAddress, ["function approve(address spender, uint256 amount)"], signer);
+      const usdtContract = new ethers.Contract(usdtAddress, USDTABI.abi, signer);
       const amountInUSDT = ethers.utils.parseUnits(usdtAmount, 6); // USDT has 6 decimals
       await usdtContract.approve(presaleAddress, amountInUSDT);
 
